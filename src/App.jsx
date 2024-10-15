@@ -17,10 +17,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login setAuth={setIsAuthenticated} />} />
-        <Route path="/about" element={<About setAuth={setIsAuthenticated} />} />
 
-        <Route
-          path="/dashboard"
+        <Route path="/dashboard"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
               <Dashboard />
@@ -28,10 +26,20 @@ function App() {
           }
         />
 
-        <Route path="/products" element={<ProtectedRoute isAuthenticated={isAuthenticated}>
-          <Products />
-        </ProtectedRoute>
-        }
+        <Route path="/products"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <Products />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route path="/about"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <About />
+            </ProtectedRoute>
+          }
         />
 
       </Routes>
